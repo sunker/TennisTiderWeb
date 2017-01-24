@@ -1,0 +1,194 @@
+{
+    "endpoints": {
+        "hellas": {
+            "id": 1,
+            "name": "Hellas TK",
+            "image": "hellas.jpg",
+            "url": "http://www.commodusnet.net/kund/adminschedule.php?YEAR=[year]&MONTH=[month]&DAY=[day]&sess_adm_club_id=19&indoors=1",
+            "daysAhead": 14,
+            "include": false,
+            "selectors": {
+                "root": "#contentSmall table.border_collapse tr",
+                "time": "td:nth-child(1n) p b",
+                "activity": "a.book center",
+                "court": "table.border_collapse tr:nth-child(1n) td:nth-child([columnIndex]n) p b"
+            }
+        },
+        "matchi": [{
+            "id": 2,
+            "include": false,
+            "name": "Mälarhöjdens TK",
+            "image": "mik.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=53&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 14
+        }, {
+            "id": 3,
+            "include": false,
+            "name": "Kärrtorps TK",
+            "image": "",
+            "url": "https://www.matchi.se/book/schedule?facilityId=122&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 4,
+            "include": false,
+            "name": "Padelverket",
+            "image": "padelverket.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=121&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 3
+        }, {
+            "id": 5,
+            "include": false,
+            "name": "SALK",
+            "image": "salk.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=22&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 6,
+            "include": false,
+            "name": "Haga Tennis",
+            "image": "hagatennis.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=22&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 3
+        }, {
+            "id": 7,
+            "include": false,
+            "name": "Frescati",
+            "image": "frescati.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=44&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 3
+        }, {
+            "id": 8,
+            "include": false,
+            "name": "PDL Center",
+            "image": "pdlcenter.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=81&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 3
+        }, {
+            "id": 9,
+            "include": false,
+            "name": "Älta TK",
+            "image": "alta.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=106&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 10,
+            "include": false,
+            "name": "Ekerö Padel",
+            "image": "ekeropadel.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=95&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 11,
+            "include": false,
+            "name": "Skogås Racketcenter",
+            "image": "skogas.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=99&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 12,
+            "include": false,
+            "name": "Sollentuna Rackethall",
+            "image": "sollentunarackethall.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=15&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 13,
+            "include": false,
+            "name": "Sollentuna TK - Edsbergshallen",
+            "image": "sollentunatk.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=24&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 14,
+            "include": false,
+            "name": "Haninge TK",
+            "image": "haningetk.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=61&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 15,
+            "include": false,
+            "name": "Boo KFUM IA",
+            "image": "bookfum.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=90&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 16,
+            "include": false,
+            "name": "Stora Wäsby TK",
+            "image": "storawasby.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=132&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 17,
+            "include": false, 
+            "image": "sptk.jpg",
+            "name": "SPTK / Södertälje-Pershagen TK",
+            "url": "https://www.matchi.se/book/schedule?facilityId=71&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 18,
+            "include": false,
+            "name": "Vallentuna TK",
+            "image": "valletunatk.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=63&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }, {
+            "id": 19,
+            "include": false,
+            "name": "Bålsta TK",
+            "image": "",
+            "url": "https://www.matchi.se/book/schedule?facilityId=28&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 7
+        }],
+        "enskede": {
+            "name": "Enskede TK",
+            "image": "balstatk.jpg",
+            "bookingUrl": "http://www.enskederackethall.se/onlinebokning/",
+            "baseUrl": "http://redirect.bokning11.pastelldata.se/Redirect.aspx?GUID=1538&UNIT=1538&PAGE=LOKALBOKNING",
+            "domain": "http://v6716-profitwebsite.pastelldata.com",
+            "daysAhead": 6,
+            "id": 20,
+            "include": false,
+            "tableContainerSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_bookableTimesTable",
+            "tennisButtonSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_ctl07",
+            "bookableClass": "ResBookSchemaTableBookButton",
+            "formSelectorId": "form1",
+            "days": [
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl19",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl20",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl21",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl22",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl23",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl24",
+                "ContentPlaceHolder1_TreatmentBookWUC1_ctl25"
+            ]
+        },
+        "myCourt": {
+            "loginUrl": "http://www.mycourt.se/index.php",
+            "startPage": "http://www.mycourt.se/your_clubs.php",
+            "daysAhead": 6,
+            "id": 21,
+            "include": true,
+            "email": "tennistider@gmail.com",
+            "password": "hejsan10",
+            "loginClasSelector": "button small-button signin-button",
+            "tennisButtonSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_ctl07",
+            "bookableClass": "ResBookSchemaTableBookButton",
+            "formSelectorId": "form1",
+            "clubs": [{
+                "id": 21,
+                "name": "Tennisstadion",
+                "image": "tennisstadion.png",
+                "myCourtClubId": "333",
+                "bookingUrl": "http://www.mycourt.se/"
+            }, {
+                "name": "Stockholms Tennishall",
+                "id": 22,
+                "image": "stockholmstennishall.png",
+                "myCourtClubId": "389",
+                "bookingUrl": "http://www.mycourt.se/"
+            }]
+        }
+    }
+}

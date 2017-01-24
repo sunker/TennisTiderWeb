@@ -1,0 +1,22 @@
+﻿<div id="time-range-{{this.timePickerSettings.uuid}}">
+	<div class="row">
+		<div class="border col-xs-6">
+			<h4 class="pull-left">{{this.timePickerSettings.header}}</h4>
+		</div>
+		<div class="border col-xs-6" style="margin-top: 1px;">
+			<div class="text-right">
+				<span>exkludera</span>
+				<label class="btn">
+			<input type="checkbox" (change)="enabledChanged($event)" [(ngModel)]="this.timePickerSettings.included" [checked]="this.timePickerSettings.included" name="activeForUser-{{i}}"><i class="fa fa-square-o fa-2x">
+			</i><i class="fa fa-check-square-o fa-2x"></i>
+    				</label>
+			</div>
+		</div>
+	</div>
+	<p><span class="slider-time-{{this.timePickerSettings.uuid}}" [innerHTML]="this.timePickerSettings.timeSlot.startTime">{{this.timePickerSettings.timeSlot.startTime.toFixed(2)}}</span> - <span class="slider-time2-{{this.timePickerSettings.uuid}}">{{this.timePickerSettings.timeSlot.endTime.toFixed(2)}}</span>
+	</p>
+	<div class="sliders_step1-{{this.timePickerSettings.uuid}}">
+		<div id="slider-range-{{this.timePickerSettings.uuid}}"></div>
+	</div>
+</div>
+<hr />

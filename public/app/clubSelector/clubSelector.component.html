@@ -1,0 +1,29 @@
+﻿<div class="component-page">
+	<h2 class="text-center">Vilka klubbar är intressanta för dig?</h2>
+	<form (ngSubmit)="f.form.valid && saveClubs()" #f="ngForm" novalidate>
+		<ul class="club-selector">
+			<li *ngFor="let club of clubs">
+				<div class="media">
+					<div class="media-left">
+						<a href="../assets/img/{{club.image}}">
+							<img class="media-object" src="app/assets/img/{{club.image}}" alt="...">
+						</a>
+					</div>
+					<div class="media-body">
+						<h4 class="media-heading">{{club.name}}</h4>
+						<p><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+					</div>
+					<div class="media-right">
+						<label class="btn">
+      					<input type="checkbox" (change)="activeChanged($event, club)" [checked]="club.active" name="activeForUser-{{i}}"><i class="fa fa-square-o fa-2x">
+							  </i><i class="fa fa-check-square-o fa-2x"></i>
+    				</label>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<button [disabled]="loading">Spara</button>
+		<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+		<p class="message text-center"><a  [routerLink]="['/']" class="btn btn-link">Konfigurera det här vid ett senare tillfälle</a></p>
+	</form>
+</div>
