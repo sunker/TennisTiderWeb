@@ -64,32 +64,32 @@ export class TimeSlotSelectorComponent implements AfterViewInit {
             step: 30,
             values: this.timePickerSettings.values,
             slide: function (e: any, ui: any) {
-                var hours1 = Math.floor(ui.values[0] / 60);
-                var minutes1 = ui.values[0] - (hours1 * 60);
+                var hours1 = Math.floor(ui.values[0] / 60).toString();
+                var minutes1 = (ui.values[0] - (Number(hours1) * 60)).toString();
 
                 if (hours1.length == 1) hours1 = '0' + hours1;
                 if (minutes1.length == 1) minutes1 = '0' + minutes1;
-                if (minutes1 == 0) minutes1 = '00';
-                if (hours1 >= 12) {
+                if (minutes1 == "0") minutes1 = '00';
+                if (Number(hours1) >= 12) {
                 } else {
                     hours1 = hours1;
                     minutes1 = minutes1;
                 }
-                if (hours1 == 0) {
-                    hours1 = 12;
+                if (Number(hours1) == 0) {
+                    hours1 = "12";
                     minutes1 = minutes1;
                 }
 
                 $('.slider-time-' + self.uuid).html(hours1 + ':' + minutes1);
                 self.timePickerSettings.timeSlot.startTime = Number(`${hours1}.${minutes1}`);
 
-                var hours2 = Math.floor(ui.values[1] / 60);
-                var minutes2 = ui.values[1] - (hours2 * 60);
+                var hours2 = (Math.floor(ui.values[1] / 60)).toString();
+                var minutes2 = (ui.values[1] - (Number(hours2) * 60)).toString();
 
                 if (hours2.length == 1) hours2 = '0' + hours2;
                 if (minutes2.length == 1) minutes2 = '0' + minutes2;
-                if (minutes2 == 0) minutes2 = '00';
-                if (hours2 >= 12) {
+                if (minutes2 == "0") minutes2 = '00';
+                if (Number(hours2) >= 12) {
                 } else {
                     hours2 = hours2;
                     minutes2 = minutes2;

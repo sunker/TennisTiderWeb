@@ -27,7 +27,7 @@ export class DefaultTimeSelectorComponent implements AfterViewInit {
                     this.router.navigateByUrl('/logga-in');
                 }
                 this.userObj = user;
-                this.clubSlots = this.userSlotPreference.getClubSlots(user.slotPreference.filter(x => x.clubId === -1))[0];
+                this.clubSlots = this.userSlotPreference.getClubSlots(user.slotPreference.filter((x: any)=> x.clubId === -1))[0];
             });
     }
 
