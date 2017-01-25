@@ -1,0 +1,26 @@
+﻿<div class="component-page">
+	<ul class="home-list">
+
+		<h2>Välkommen!</h2>
+		<li>
+			<!--<a [routerLink]="['/logga-in']"><h4><i class="glyphicon glyphicon-time" style="font-size:20px; vertical-align: middle;"></i><span>Dina klubbar</span></h4></a>-->
+			<a [routerLink]="['/valj-klubbar']">
+				<!--<span style="font-size:20px;" class="glyphicon glyphicon-envelope"></span> <h4>Dina klubbar</h4>
+                <img src="img/spanga.jpg">-->
+                <h4>Dina klubbar</h4>
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="['/valj-klubbtider']">
+				<h4>Dina tider</h4>
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="['/']">
+				<h4 (click)="sendMail()">Skicka mail med alla tider</h4><span><img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></span>
+			</a>
+		</li>
+
+		<p class="text-right"><a [routerLink]="['/logga-in']">Logga ut</a></p>
+	</ul>
+</div>

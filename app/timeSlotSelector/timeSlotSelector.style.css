@@ -1,0 +1,9 @@
+.ui-widget-header {
+    background: #ff6400 !important;
+}
+
+.ui-slider-handle {
+    width: 1.8em;
+    height: 1.8em;
+    top: -.5em;
+}

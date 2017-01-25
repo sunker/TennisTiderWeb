@@ -1,0 +1,45 @@
+﻿<div class="component-page">
+	<form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+		<div class="text-center">
+			<h4>Klubbspecifika inställningar</h4>
+			<p>Klicka på klubben för att välja tidsinterval</p>
+		</div>
+		<hr>
+		<div id="accordion" class="panel-group">
+			<ul class="club-selector">
+				<li *ngFor="let clubSlot of clubSlots; let i = index">
+					<div class="media">
+						<div class="media-left">
+							<a href="img/{{clubSlot.club.image}}">
+								<img class="media-object" src="img/{{clubSlot.club.image}}" alt="...">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">{{clubSlot.club.name}}</h4>
+							<p><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+						</div>
+						<div class="media-right">
+							<a class="club-time-selector-edit" data-toggle="collapse" data-parent="#accordion" href="#slot-target-{{i}}"><i class="fa fa-pencil-square-o link-edit" aria-hidden="true"></i></a>
+						</div>
+
+						<div id="slot-target-{{i}}" class="panel-collapse collapse">
+							<time-selector [clubSlots]="clubSlot"></time-selector>
+						</div>
+
+					</div>
+				</li>
+			</ul>
+			<!--<div *ngFor="let clubSlot of clubSlots; let i = index" class="panel-heading">
+				<a class="link-as-header" data-toggle="collapse" data-parent="#accordion" href="#slot-target-{{i}}">{{clubSlot.clubName}}<i class="fa fa-pencil-square-o link-edit" aria-hidden="true"></i></a>
+				<div id="slot-target-{{i}}" class="panel-collapse collapse">
+					<time-selector [clubSlots]="clubSlot"></time-selector>
+				</div>
+			</div>-->
+		</div>
+		<!--<p class="message text-left"><a [routerLink]="['/']" class="btn btn-link">Lägg till ett tidsspann för helger</a></p>-->
+		<button [disabled]="loading">Fortsätt</button>
+		<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+		/>
+		<p class="message text-center"><a  [routerLink]="['/']" class="btn btn-link">Avbryt</a></p>
+	</form>
+</div>
