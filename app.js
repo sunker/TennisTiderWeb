@@ -21,14 +21,14 @@ const options = {
   index: "index.html"
 };
 
-if (app.get('env') !== 'production') {
+if (app.get('env') === 'production') {
 
   options.index = "index.dev.html";
 
   // expose node_modules to client app
   app.use(express.static(__dirname + "/node_modules"));
 }
-options.index = "index.dev.html";
+
 
 app.use(logger('dev'));
 app.use(compression());
