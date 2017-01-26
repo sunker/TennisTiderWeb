@@ -7,10 +7,11 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "prod": "NODE_ENV=production ./bin/www",
+    "heroku-postbuild": "node bin/bundler.js --prod",
     "build:prod": "node bin/bundler.js --prod",
     "postinstall": "npm run build:prod"
   },
-  "repository": {
+  "repository": { 
     "url": "https://github.com/vladotesanovic/angular2-express-slim"
   },
   "dependencies": {

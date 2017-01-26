@@ -14,7 +14,7 @@ builder.loadConfig('./public/js/systemjs.config.js')
       mangle: argv.prod,
       rollup: argv.prod
     });
-  })
+  }) 
   .then(function() {
 
     const gzip = zlib.createGzip();
@@ -23,6 +23,6 @@ builder.loadConfig('./public/js/systemjs.config.js')
     const out = fs.createWriteStream(path.resolve(__dirname + '/../public/js/bundle.min.js.gz'));
 
     inp.pipe(gzip).pipe(out);
-
+    console.log(path.resolve(__dirname + '/../public/js/bundle.min.js'));
     console.log('bundle built successfully!');
   });
