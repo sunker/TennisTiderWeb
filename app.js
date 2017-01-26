@@ -21,7 +21,7 @@ const options = {
   index: "index.html"
 };
 
-if (app.get('env') !== 'production') {
+if (app.get('env') === 'production') {
 
   options.index = "index.dev.html";
 
@@ -48,7 +48,8 @@ app.use('/api/authenticate', authenticationApi);
 app.use('/api/user', userApi);
 
 //DB connect
-mongoose.connect('mongodb://127.0.0.1/tennistider', (err) => {
+// mongoose.connect('mongodb://127.0.0.1/tennistider', (err) => {
+mongoose.connect('mongodb://heroku_6pl9bfpx:9j9uur4mvva12agvm337k8lrgs@ds131139.mlab.com:31139/heroku_6pl9bfpx', (err) => {
     if (err) console.log(err);
     else console.log('Connected to database');
 });
