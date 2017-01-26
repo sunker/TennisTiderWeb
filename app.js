@@ -23,7 +23,7 @@ const options = {
 
 if (app.get('env') !== 'production') {
 
-  options.index = "index.dev.html";
+  options.index = "index.html";
 
   // expose node_modules to client app
   app.use(express.static(__dirname + "/node_modules"));
