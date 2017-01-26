@@ -32,7 +32,7 @@ export class ClubTimeSelectorComponent {
     save() {
         this.userSlotPreference.saveClubTimeSlotSettings(this.currentUser.email, this.clubSlots)
             .subscribe((data) => {
-                this.router.navigateByUrl('/home');
+                this.router.navigateByUrl('/');
             });
     }
 }
