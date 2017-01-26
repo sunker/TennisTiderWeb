@@ -21,7 +21,7 @@ const options = {
   index: "index.html"
 };
 
-if (app.get('env') === 'production') {
+if (app.get('env') !== 'production') {
 
   options.index = "index.dev.html";
 
