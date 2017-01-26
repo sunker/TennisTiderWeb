@@ -6,7 +6,7 @@
             "image": "hellas.jpg",
             "url": "http://www.commodusnet.net/kund/adminschedule.php?YEAR=[year]&MONTH=[month]&DAY=[day]&sess_adm_club_id=19&indoors=1",
             "daysAhead": 14,
-            "include": false,
+            "include": true,
             "selectors": {
                 "root": "#contentSmall table.border_collapse tr",
                 "time": "td:nth-child(1n) p b",
@@ -16,14 +16,14 @@
         },
         "matchi": [{
             "id": 2,
-            "include": false,
+            "include": true,
             "name": "Mälarhöjdens TK",
             "image": "mik.jpg",
             "url": "https://www.matchi.se/book/schedule?facilityId=53&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
             "daysAhead": 14
         }, {
             "id": 3,
-            "include": false,
+            "include": true,
             "name": "Kärrtorps TK",
             "image": "karrtorp.jpg",
             "url": "https://www.matchi.se/book/schedule?facilityId=122&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -44,14 +44,14 @@
             "daysAhead": 7
         }, {
             "id": 6,
-            "include": false,
+            "include": true,
             "name": "Haga Tennis",
             "image": "hagatennis.jpg",
-            "url": "https://www.matchi.se/book/schedule?facilityId=22&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "url": "https://www.matchi.se/book/schedule?facilityId=110&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
             "daysAhead": 3
         }, {
             "id": 7,
-            "include": false,
+            "include": true,
             "name": "Frescati",
             "image": "frescati.jpg",
             "url": "https://www.matchi.se/book/schedule?facilityId=44&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -105,13 +105,22 @@
             "image": "haningetk.jpg",
             "url": "https://www.matchi.se/book/schedule?facilityId=61&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
             "daysAhead": 7
-        }, {
-            "id": 15,
+        }, 
+        {
+            "id": 14,
             "include": false,
-            "name": "Boo KFUM IA",
-            "image": "bookfum.jpg",
-            "url": "https://www.matchi.se/book/schedule?facilityId=90&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "name": "Haninge TK",
+            "image": "haningetk.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=61&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
             "daysAhead": 7
+        }, 
+        {
+            "id": 23,
+            "include": false,
+            "name": "Edsvikens TK",
+            "image": "edsviken.jpg",
+            "url": "https://www.matchi.se/book/schedule?facilityId=34&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
+            "daysAhead": 8
         }, {
             "id": 16,
             "include": false,
@@ -143,13 +152,13 @@
         }],
         "enskede": {
             "name": "Enskede TK",
-            "image": "balstatk.jpg",
+            "image": "enskede.jpg",
             "bookingUrl": "http://www.enskederackethall.se/onlinebokning/",
             "baseUrl": "http://redirect.bokning11.pastelldata.se/Redirect.aspx?GUID=1538&UNIT=1538&PAGE=LOKALBOKNING",
             "domain": "http://v6716-profitwebsite.pastelldata.com",
             "daysAhead": 6,
             "id": 20,
-            "include": false,
+            "include": true,
             "tableContainerSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_bookableTimesTable",
             "tennisButtonSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_ctl07",
             "bookableClass": "ResBookSchemaTableBookButton",

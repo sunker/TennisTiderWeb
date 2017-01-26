@@ -6,7 +6,7 @@ var express = require('express'),
 
 //58418062fb498203ece4e656"
 router.post('/', function (req, res) {
-    User.getByEmail(req.body.email.toLowerCase()).then((user) => {
+    User.getByEmail(req.body.email.toLowerCase().trim()).then((user) => {
         if (user && user.validatePassword(req.body.password)) {
             var token = jwt.sign(user, 'tennistidersupersecrettoken', {
                 expiresIn: 6000 // 60 days
@@ -36,8 +36,8 @@ router.post('/', function (req, res) {
 
 router.post('/create', function (req, res) {
     var user = new User();
-    user.email = req.body.email;
-    user.password = req.body.password;
+    user.email = req.body.email.toLowerCase().trim();
+    user.password = req.body.password.trim();
     user.firstTimeUser = true;
     User.add(user).then((user) => {
         res.json({
