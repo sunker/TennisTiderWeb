@@ -26,19 +26,22 @@ router.get('/getByEmail/:email', function (req, res) {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     var userObj = {};
     User.getByEmail(req.params.email).then((user) => {
-        userObj = user.toObject();
-        userObj.slotPreference.forEach((slotPref) => {
-            const club = clubService.getAllClubs().find(x => x.id === slotPref.clubId);
+        try {
+            userObj = user.toObject();
+            userObj.slotPreference.forEach((slotPref) => {
+                const club = clubService.getAllClubs().find(x => x.id === slotPref.clubId);
 
-            slotPref.clubName = club ? club.name : '';
-            slotPref.club = club ? club : {
-                id: -1,
-                name: ''
-            };
-
-        });
-        return res.end(JSON.stringify(userObj));
-    });
+                slotPref.clubName = club ? club.name : '';
+                slotPref.club = club ? club : {
+                    id: -1,
+                    name: ''
+                };
+            });
+            return res.end(JSON.stringify(userObj));
+        } catch (error) {
+            res.end(JSON.stringify('{ success: false }'))
+        }
+    }, res.end(JSON.stringify('{ success: false }')));
 });
 
 router.post('/sendMailList', function (req, res) {
