@@ -5,6 +5,7 @@ var express = require('express'),
     TimeSlot = require('../models/TimeSlot'),
     jwtAuthentication = require('../middleware/jwtAuthentication'),
     User = mongoose.model('user'),
+    notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
     filter = require('../notification/userSlotFilter');
 
@@ -74,6 +75,11 @@ router.post('/saveClubTimeSlotSettings', function (req, res) {
             });
         });
         user.active = true;
+        if (user.firstTimeUser) {
+            SlotsCache.getCurrent().then((slots) => {
+                notificationService.notifyUser(user, slots, true)
+            });
+        }
         user.firstTimeUser = false;
         user.markModified('slotPreference');
         user.save().then((user) => {
@@ -100,16 +106,21 @@ router.post('/addDefaultTimeSlotSettings', function (req, res) {
             return new TimeSlot(x.timeSlot.startTime, x.timeSlot.endTime, x.include).toJSON();
         }) : undefined;
 
-        user.slotPreference.forEach((prefClub) => {
-            prefClub.days[0] = weekendSlots;
-            prefClub.days[1] = weekdaySlots;
-            prefClub.days[2] = weekdaySlots;
-            prefClub.days[3] = weekdaySlots;
-            prefClub.days[4] = weekdaySlots;
-            prefClub.days[5] = weekdaySlots;
-            prefClub.days[6] = weekendSlots;
-        });
         user.active = true;
+        if (user.firstTimeUser) {
+            user.slotPreference.forEach((prefClub) => {
+                prefClub.days[0] = weekendSlots;
+                prefClub.days[1] = weekdaySlots;
+                prefClub.days[2] = weekdaySlots;
+                prefClub.days[3] = weekdaySlots;
+                prefClub.days[4] = weekdaySlots;
+                prefClub.days[5] = weekdaySlots;
+                prefClub.days[6] = weekendSlots;
+            });
+            SlotsCache.getCurrent().then((slots) => {
+                notificationService.notifyUser(user, slots, true)
+            });
+        }
         user.firstTimeUser = false;
         user.markModified('active');
         user.markModified('firstTimeUser');

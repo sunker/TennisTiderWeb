@@ -7,6 +7,7 @@ var express = require('express'),
     clubService = require('../services/clubService'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
+    SlotsCache = mongoose.model('SlotsCache'),
     filter = require('../notification/userSlotFilter');
 
 router.use(jwtAuthentication);

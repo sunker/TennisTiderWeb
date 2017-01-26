@@ -107,14 +107,6 @@
             "daysAhead": 7
         }, 
         {
-            "id": 14,
-            "include": false,
-            "name": "Haninge TK",
-            "image": "haningetk.jpg",
-            "url": "https://www.matchi.se/book/schedule?facilityId=61&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
-            "daysAhead": 7
-        }, 
-        {
             "id": 23,
             "include": false,
             "name": "Edsvikens TK",
