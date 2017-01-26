@@ -46,10 +46,9 @@ router.post('/sendMailList', function (req, res) {
     const userPromise = User.getByEmail(req.body.email);
 
     Promise.all([userPromise, slotPromise]).then(values => {
-        console.log(values[1].length);
         notificationService.notifyUser(values[0], values[1], true).then(() => {
-            return res.json('{success: true}')
-        }, () => res.end());
+            return res.json('{success: true}');
+        }, () => res.json('{success: false}'));
     });
 });
 

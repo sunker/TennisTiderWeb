@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
     Q = require('q'),
     Slot = require('./Slot'),
-    TimeSlot     = require('./TimeSlot'),
+    TimeSlot = require('./TimeSlot'),
     SlotCollection = require('./SlotCollection'),
     Schema = mongoose.Schema;
 
@@ -21,7 +21,8 @@ slotsCacheSchema.statics = {
             if (err) {
                 defer.reject(err);
             } else {
-                defer.resolve(JSON.parse(cache.slots).map(x => new Slot(x.clubId, x.clubName, x._date, new TimeSlot(x.timeSlot.startTime, x.timeSlot.endTime), x.courtNumber, x.surface, x.price, x.link)));
+                var slots = JSON.parse(cache.slots).map(x => new Slot(x.clubId, x.clubName, x._date, new TimeSlot(x.timeSlot.startTime, x.timeSlot.endTime), x.courtNumber, x.surface, x.price, x.link));
+                defer.resolve(_.uniq(slots, (x) => x.getKey()));
             }
         });
 

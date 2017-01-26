@@ -22,16 +22,11 @@ userNotificationService.notifyUsers = (slots) => {
 
 userNotificationService.notifyUser = (user, slots, force) => {
     return new Promise((resolveOuter, reject) => {
-        let isWeeklyReport;
-        if (!force) {
-            isWeeklyReport = user.sendWeeklyReport();
-            if (isWeeklyReport) user.saveWeeklyReport();
-        }
         let slotsOfInterest = userSlotFilter.filterSlots(user, slots);
         let slotsToBroadcastPromises = slotsOfInterest.map(slot => {
             return new Promise((resolve, reject) => {
                 let key = slot.getKey(user.email);
-                if (isWeeklyReport || force) {
+                if (force) {
                     resolve({
                         key: key,
                         slot: slot
@@ -53,10 +48,11 @@ userNotificationService.notifyUser = (user, slots, force) => {
         });
         Promise.all(slotsToBroadcastPromises).then(function (slots) {
                 const slotCollection = new SlotCollection(slots);
+                slots = _.uniq(slots, (x) => x.slot.getKey());
                 slots = slots.filter(x => x);
 
                 if (slots.length === 0) return;
-                let mail = new Mail(_.uniq(this.slots, (x) => x.key), user.email, isWeeklyReport);
+                let mail = new Mail(slots.map(x => x.slot), user.email, force);
                 mailClient.sendEmail(mail).then(() => {
                         slotCollection.uniqueSlotKeys.forEach((key) => {
                             Notification.containsKey(key).then((containsKey) => {
@@ -72,17 +68,17 @@ userNotificationService.notifyUser = (user, slots, force) => {
                         });
                         resolveOuter();
                     }, (error) => {
-                        console.log('Duplicate key. Key mot saved');
-                        reject();
+                        console.log('. Key not saved');
+                        resolveOuter();
                     })
                     .catch(function (error) {
                         console.log('Could not send email');
-                        reject();
+                        resolveOuter();
                     });
             })
             .catch(function (error) {
                 console.log(error);
-                reject();
+                resolveOuter();
             });
     });
 };
