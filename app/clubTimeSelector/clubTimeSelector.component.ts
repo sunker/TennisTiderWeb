@@ -32,11 +32,7 @@ export class ClubTimeSelectorComponent {
     save() {
         this.userSlotPreference.saveClubTimeSlotSettings(this.currentUser.email, this.clubSlots)
             .subscribe((data) => {
-                if (this.userObj.firstTimeUser) {
-                    this.router.navigateByUrl('/valj-bastid');
-                } else {
-                    this.router.navigateByUrl('/home');
-                }
+                this.router.navigateByUrl('/home');
             });
     }
 }
