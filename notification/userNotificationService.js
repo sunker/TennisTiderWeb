@@ -55,12 +55,8 @@ userNotificationService.notifyUser = (user, slots, force) => {
                 const slotCollection = new SlotCollection(slots);
                 slots = slots.filter(x => x);
 
-                if (!isWeeklyReport) {
-                    slots = slots.filter(slot => userSlotFilter.isPrimeTime(slot.slot));
-                }
-
                 if (slots.length === 0) return;
-                let mail = new Mail(_.uniq(slots.map(x => x.slot), (x) => x.key), user.email, isWeeklyReport);
+                let mail = new Mail(_.uniq(this.slots, (x) => x.key), user.email, isWeeklyReport);
                 mailClient.sendEmail(mail).then(() => {
                         slotCollection.uniqueSlotKeys.forEach((key) => {
                             Notification.containsKey(key).then((containsKey) => {
