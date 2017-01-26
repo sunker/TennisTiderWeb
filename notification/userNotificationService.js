@@ -60,7 +60,7 @@ userNotificationService.notifyUser = (user, slots, force) => {
                 }
 
                 if (slots.length === 0) return;
-                let mail = new Mail(slots.map(x => x.slot), user.email, isWeeklyReport);
+                let mail = new Mail(_.uniq(slots.map(x => x.slot), (x) => x.key), user.email, isWeeklyReport);
                 mailClient.sendEmail(mail).then(() => {
                         slotCollection.uniqueSlotKeys.forEach((key) => {
                             Notification.containsKey(key).then((containsKey) => {

@@ -31,7 +31,11 @@ export class ClubSelectorComponent implements OnInit {
         if (clubs.length != 0) {
             this.userSlotPreference.saveClubs(this.currentUser.email, clubs)
                 .subscribe((data) => {
-                    this.router.navigateByUrl('/valj-bastid');
+                    if (data.firstTimeUser && data.slotPreference.length > 3) {
+                        this.router.navigateByUrl('/valj-bastid');
+                    } else {
+                        this.router.navigateByUrl('/valj-klubbtider');
+                    }
                 });
         }
     }
@@ -45,7 +49,7 @@ export class ClubSelectorComponent implements OnInit {
             if (club.success === false) {
                 this.router.navigateByUrl('/logga-in');
             }
-            
+
             this.clubs = club;
         });
     }

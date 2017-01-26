@@ -137,7 +137,7 @@
             "id": 19,
             "include": false,
             "name": "Bålsta TK",
-            "image": "",
+            "image": "balstatk.jpg",
             "url": "https://www.matchi.se/book/schedule?facilityId=28&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
             "daysAhead": 7
         }],

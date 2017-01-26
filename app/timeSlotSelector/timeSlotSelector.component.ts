@@ -20,7 +20,7 @@ export class TimeSlotSelectorComponent implements AfterViewInit {
     viewInitialized = false;
     changesDone = false;
     uuid: string;
-    tempIncludedValue: Boolean = false;
+    tempIncludedValue: Boolean = false; 
     statusText = '';
 
     constructor(rootNode: ElementRef, private timePickerSettingsFactory: TimePickerSettingsFactory) {
@@ -43,6 +43,7 @@ export class TimeSlotSelectorComponent implements AfterViewInit {
     }
 
     enabledChanged(event: any) {
+        this.tempIncludedValue = !this.tempIncludedValue;
         this.timePickerSettings.include = this.tempIncludedValue;
         this.initSlider();
     }

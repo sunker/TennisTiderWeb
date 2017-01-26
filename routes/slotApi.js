@@ -39,7 +39,7 @@ router.post('/addClubs', function (req, res) {
         });
         // user.markModified();
         user.save().then((user) => {
-            res.json(JSON.stringify(user.slotPreference));
+            res.json(user.toObject());
         });
     }, (error) => {
         res.writeHead(400, "Kunde inte hitta användaren", {
