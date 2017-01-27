@@ -37,9 +37,9 @@ router.get('/getByEmail/:email', function (req, res) {
                     name: ''
                 };
             });
-            return res.end(JSON.stringify(userObj));
+            return res.json(userObj);
         } catch (error) {
-            res.end(JSON.stringify('{ success: false }'))
+            res.end(JSON.stringify('{ success: ' + error + ' }'))
         }
     }, (error) => res.end(JSON.stringify('{ success: ' + error + ' }')));
 });

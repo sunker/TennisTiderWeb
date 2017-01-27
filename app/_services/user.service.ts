@@ -16,7 +16,8 @@ export class UserService {
     }
 
     getByEmail(email: string) {
-        return this.http.get('https://tennistider.herokuapp.com/api/user/getByEmail/' + encodeURI(email), this.jwt()).map((response: Response) => response.json());
+        let bodyString = JSON.stringify({ "email": email });
+        return this.http.get('https://tennistider.herokuapp.com/api/user/getByEmail/' + bodyString, this.jwt()).map((response: Response) => response.json());
     }
 
     sendMailList(email: string) {
