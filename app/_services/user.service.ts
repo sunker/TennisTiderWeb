@@ -20,7 +20,8 @@ export class UserService {
     }
 
     sendMailList(email: string) {
-        return this.http.post('/api/user/sendMailList', email, this.jwt()).map((response: Response) => response.json());
+        let bodyString = JSON.stringify({ "email": email });
+        return this.http.post('/api/user/sendMailList', bodyString, this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
