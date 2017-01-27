@@ -21,7 +21,7 @@ router.get('/list', function (req, res) {
 });
 
 router.get('/getByEmail/:email', function (req, res) {
-    console.log('getByEmail' + req.params.email);
+    console.log('getByEmail' + req.body.email);
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     var userObj = {};
