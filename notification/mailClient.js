@@ -22,7 +22,7 @@ mailClient.sendEmail = function (mail) {
         to: mail.to,
         subject: mail.subject,
         // text: 'this is some text', //, // plaintext body
-        html: mail.buildHtmlText()
+        html: mail.html
     };
 
     transporter.sendMail(mailOptions, function (error, info) {

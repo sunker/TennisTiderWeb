@@ -12,7 +12,7 @@ router.post('/', function (req, res) {
             var token = jwt.sign(user, 'tennistidersupersecrettoken', {
                 expiresIn: 6000 // 60 days
             });
-            
+
             res.json({
                 'success': true,
                 'message': 'Authentication succeeded',
@@ -41,12 +41,16 @@ router.post('/create', function (req, res) {
     user.password = req.body.password.trim();
     user.firstTimeUser = true;
     User.add(user).then((user) => {
-        // mailClient.sendEmail({
-        //     "from": tennistider@gmail.com,
-        //     "to": user.email,
-        //     "subject": "Välkomenn till Tennistider",
-        //     ""
-        // })
+
+        mailClient.sendEmail({
+            "from": 'tennistider@gmail.com',
+            "to": user.email,
+            "subject": `Välkommen till Tennistider`,
+            "html": `<h2>Välkommen till Tennistider</h2>
+                    <p>Ditt användarnamn är <strong>${user.email}</strong></p>
+                    <p>Mvh / Tennistider</p>`
+        });
+        
         res.json({
             success: true,
             message: 'Registreringen lyckades!',

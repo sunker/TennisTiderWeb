@@ -19,7 +19,7 @@
          return this[_mailAddress]; // + ';johan.gunnarsson.e@gmail.com ';
      }
 
-     buildHtmlText() {
+     get html() {
          return this.htmlMailBuilder.buildHtmlString();
      }
 

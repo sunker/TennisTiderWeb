@@ -2,6 +2,7 @@
     <form  class="form" name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <h2>Skapa konto</h2>
         <br >
+        <!--<p>E-postadressen du anger kommer vara det konto som mottager mail angående lediga tennistider</p>-->
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
             <input placeholder="E-post" type="text" name="email" [(ngModel)]="model.email" #email="ngModel" required />
             <div *ngIf="f.submitted && !email.valid" class="help-block">Email krävs</div>
