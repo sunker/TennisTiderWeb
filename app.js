@@ -30,7 +30,7 @@ const options = {
 // }
 
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

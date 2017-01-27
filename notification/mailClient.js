@@ -27,6 +27,7 @@ mailClient.sendEmail = function (mail) {
 
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
+            console.log('There was an error sending the mail: ' + error);
             return defer.reject();
         } else {
             console.log('Message sent: ' + info.response);
