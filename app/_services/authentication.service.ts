@@ -11,7 +11,7 @@ export class AuthenticationService {
         let bodyString = JSON.stringify({ "email": email, "password": password });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.http.post('/api/authenticate', encodeURI(bodyString), options)
+        return this.http.post('/api/authenticate', bodyString, options)
             .map((response: Response) => {
                 let user = response.json();
                 if (user && user.token) {

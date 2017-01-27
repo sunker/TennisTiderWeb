@@ -12,7 +12,7 @@ export class ClubService {
     }
 
     getAllWithUserInfo(email: string) {
-        return this.http.get('/api/club/withUserInfo/' + encodeURI(email), this.jwt()).map((response: Response) => {
+        return this.http.get('/api/club/withUserInfo/' + email, this.jwt()).map((response: Response) => {
             return response.json();
         });
     }

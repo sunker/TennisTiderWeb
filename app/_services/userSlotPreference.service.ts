@@ -10,17 +10,17 @@ export class UserSlotPreference {
 
     saveClubs(email: string, clubs: Club[]) {
         let bodyString = JSON.stringify({ "email": email, "clubIds": clubs.map(x => x.id.toString()) });
-        return this.http.post('/api/slot/addClubs', encodeURI(bodyString), this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/slot/addClubs', bodyString, this.jwt()).map((response: Response) => response.json());
     }
 
     saveDefaultTimeSlotSettings(email: string, clubSlots: ClubSlots) {
         let bodyString = JSON.stringify({ "email": email, "clubSlot": clubSlots });
-        return this.http.post('/api/slot/addDefaultTimeSlotSettings', encodeURI(bodyString), this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/slot/addDefaultTimeSlotSettings', bodyString, this.jwt()).map((response: Response) => response.json());
     }
 
     saveClubTimeSlotSettings(email: string, clubSlots: ClubSlots[]) {
         let bodyString = JSON.stringify({ "email": email, "clubSlots": clubSlots });
-        return this.http.post('/api/slot/saveClubTimeSlotSettings', encodeURI(bodyString), this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/slot/saveClubTimeSlotSettings', bodyString, this.jwt()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
