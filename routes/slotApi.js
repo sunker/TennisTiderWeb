@@ -38,7 +38,15 @@ router.post('/addClubs', function (req, res) {
                 });
             }
         });
-        // user.markModified();
+
+        let id = 0;
+        user.slotPreference.forEach((x) => {
+            if(!req.body.clubIds.map(id => Number(id)).includes(x.clubId) && x.clubId !== -1) {
+                user.slotPreference.splice(id, 1);
+            }
+            id++;
+        });
+
         user.save().then((user) => {
             res.json(user.toObject());
         });
