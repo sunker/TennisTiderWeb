@@ -41,7 +41,7 @@ router.get('/getByEmail/:email', function (req, res) {
         } catch (error) {
             res.end(JSON.stringify('{ success: false }'))
         }
-    }, res.end(JSON.stringify('{ success: false }')));
+    }, (error) => res.end(JSON.stringify('{ success: ' + error + ' }')));
 });
 
 router.post('/sendMailList', function (req, res) {
