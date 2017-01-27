@@ -16,7 +16,7 @@ export class UserService {
     }
 
     getByEmail(email: string) {
-        return this.http.get('/api/user/getByEmail/' + encodeURI(email  ), this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/user/getByEmail/' + encodeURI(email), this.jwt()).map((response: Response) => response.json());
     }
 
     sendMailList(email: string) {
