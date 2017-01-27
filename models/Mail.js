@@ -7,7 +7,6 @@
          this[_slots] = slots;
          this[_mailAddress] = mailAddress;
          this.htmlMailBuilder = new HtmlMailBuilder(slots);
-         this.buildHtmlText();
          this.subject = isWeeklyReport ? 'Veckans tennistider' : (this[_slots].length > 1 ? 'Nya tennistider' : 'Ny tennistid');
      }
 
