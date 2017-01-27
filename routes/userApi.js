@@ -10,7 +10,7 @@ var express = require('express'),
     SlotsCache = mongoose.model('SlotsCache'),
     filter = require('../notification/userSlotFilter');
 
-// router.use(jwtAuthentication);
+router.use(jwtAuthentication);
 
 router.get('/list', function (req, res) {
     res.header('Access-Control-Allow-Origin', '*');
