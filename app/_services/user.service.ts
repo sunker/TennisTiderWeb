@@ -16,12 +16,12 @@ export class UserService {
     }
 
     getByEmail(email: string) {
-        return this.http.get('/api/user/getByEmail/' + email, this.jwt()).map((response: Response) => response.json());
+        return this.http.get('/api/user/getByEmail/' + encodeURI(email), this.jwt()).map((response: Response) => response.json());
     }
 
     sendMailList(email: string) {
         let bodyString = JSON.stringify({ "email": email });
-        return this.http.post('/api/user/sendMailList', bodyString, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/user/sendMailList', encodeURI(bodyString), this.jwt()).map((response: Response) => response.json());
     }
 
     create(user: User) {
