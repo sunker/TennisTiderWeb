@@ -7,8 +7,10 @@ var express = require('express'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
-    filter = require('../notification/userSlotFilter');
+    filter = require('../notification/userSlotFilter'),
+    noCacheHeader = require('../middleware/noCacheHeader');
 
+router.use(noCacheHeader);
 router.use(jwtAuthentication);
 
 router.get('/list/:userId', function (req, res) {
@@ -41,7 +43,7 @@ router.post('/addClubs', function (req, res) {
 
         let id = 0;
         user.slotPreference.forEach((x) => {
-            if(!req.body.clubIds.map(id => Number(id)).includes(x.clubId) && x.clubId !== -1) {
+            if (!req.body.clubIds.map(id => Number(id)).includes(x.clubId) && x.clubId !== -1) {
                 user.slotPreference.splice(id, 1);
             }
             id++;

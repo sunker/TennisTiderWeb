@@ -8,13 +8,13 @@ var express = require('express'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
-    filter = require('../notification/userSlotFilter');
+    filter = require('../notification/userSlotFilter'),
+    noCacheHeader = require('../middleware/noCacheHeader');
 
 router.use(jwtAuthentication);
+router.use(noCacheHeader);
 
 router.get('/list', function (req, res) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     User.getAll().then((users) => {
         return res.end(JSON.stringify(users));
     });
@@ -22,8 +22,6 @@ router.get('/list', function (req, res) {
 
 router.get('/getByEmail/:email', function (req, res) {
     console.log('getByEmail' + req.params.email);
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     var userObj = {};
     User.getByEmail(req.params.email).then((user) => {
         try {
@@ -45,8 +43,6 @@ router.get('/getByEmail/:email', function (req, res) {
 });
 
 router.post('/sendMailList', function (req, res) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     const slotPromise = SlotsCache.getCurrent();
     const userPromise = User.getByEmail(req.body.email);
 
