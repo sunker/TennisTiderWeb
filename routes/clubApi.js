@@ -3,11 +3,11 @@ var express = require('express'),
     clubService = require('../services/clubService'),
     mongoose = require('mongoose'),
     jwtAuthentication = require('../middleware/jwtAuthentication'),
-    noCacheHeader = require('../middleware/noCacheHeader'),
+    // noCacheHeader = require('../middleware/noCacheHeader'),
     User = mongoose.model('user');
 
 router.use(jwtAuthentication);
-router.use(noCacheHeader);
+// router.use(noCacheHeader);
 
 router.use(jwtAuthentication);
 

@@ -8,11 +8,11 @@ var express = require('express'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
-    filter = require('../notification/userSlotFilter'),
-    noCacheHeader = require('../middleware/noCacheHeader');
+    filter = require('../notification/userSlotFilter');
+    // noCacheHeader = require('../middleware/noCacheHeader');
 
 router.use(jwtAuthentication);
-router.use(noCacheHeader);
+// router.use(noCacheHeader);
 
 router.get('/list', function (req, res) {
     User.getAll().then((users) => {
