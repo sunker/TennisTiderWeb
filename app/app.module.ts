@@ -22,6 +22,7 @@ import { ClubSelectorComponent } from './clubSelector/index';
 import { TimeSelectorComponent } from './timeSelector/index';
 import { TimeSlotSelectorComponent } from './timeSlotSelector/index';
 import { ClubTimeSelectorComponent } from './clubTimeSelector/index';
+import { SlotMonitorComponent } from './slotMonitor/index';
 
 @NgModule({
     imports: [
@@ -40,7 +41,8 @@ import { ClubTimeSelectorComponent } from './clubTimeSelector/index';
         TimeSelectorComponent,
         DefaultTimeSelectorComponent,
         TimeSlotSelectorComponent,
-        ClubTimeSelectorComponent
+        ClubTimeSelectorComponent,
+        SlotMonitorComponent
     ],
     providers: [
         AuthGuard,

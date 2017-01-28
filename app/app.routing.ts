@@ -8,6 +8,7 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { DefaultTimeSelectorComponent } from './defaultTimeSelector/index';
 import { ClubTimeSelectorComponent } from './clubTimeSelector/index';
+import { SlotMonitorComponent } from './slotMonitor/index';
 import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
     { path: 'skapa-konto', component: RegisterComponent },
     { path: 'valj-bastid', component: DefaultTimeSelectorComponent },
     { path: 'valj-klubbtider', component: ClubTimeSelectorComponent },
+    { path: 'bevakning', component: SlotMonitorComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
