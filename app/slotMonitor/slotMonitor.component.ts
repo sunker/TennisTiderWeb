@@ -25,7 +25,7 @@ export class SlotMonitorComponent {
                     this.router.navigateByUrl('/logga-in');
                 }
                 this.userObj = user;
-                this.clubs = user.slotPreference.map((x: any) => x.club);
+                this.clubs = user.slotPreference.map((x: any) => x.club).filter(x => x.id !== -1);;
             });
     }
 
