@@ -8,13 +8,13 @@
 		<div id="accordion" class="panel-group">
 			<ul class="club-selector">
 				<li *ngFor="let clubSlot of clubSlots; let i = index">
-					<div class="media" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i">
+					<div class="media">
 						<div class="media-left">
-							<img class="media-object" src="img/{{clubSlot.club.image}}" alt="...">
+							<img class="media-object" src="img/{{clubSlot.club.image}}" alt="..." data-toggle="collapse" [attr.data-target]="'#slot-target-' + i">
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">{{clubSlot.club.name}}</h4>
-							<p><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+							<h4 class="media-heading" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i">{{clubSlot.club.name}}</h4>
+							<p data-toggle="collapse" [attr.data-target]="'#slot-target-' + i"><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
 						</div>
 						<div class="media-right">
 							<a class="club-time-selector-edit" data-toggle="collapse" data-parent="#accordion" href="#slot-target-{{i}}"><i class="fa fa-pencil-square-o link-edit" aria-hidden="true"></i></a>
