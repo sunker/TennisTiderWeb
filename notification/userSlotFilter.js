@@ -17,7 +17,6 @@ userSlotFilter.filterSlots = (user, slots) => {
 };
 
 userSlotFilter.isPrimeTime = (slot) => {
-    if (!slot.timeSlot.active) return false;
     if (slot.timeSlot.startTime > 17) return true;
     if (slot.isOnWeekend && slot.timeSlot.startTime > 8) return true;
     if (slot.daysFromToday() < 7) return true;
@@ -27,12 +26,13 @@ userSlotFilter.isPrimeTime = (slot) => {
 };
 
 var isTimeInPreferenceRange = (timeIntervalsOfPreference, timeSlot) => {
-    if (!timeSlot.active) return false;
     for (var index = 0; index < timeIntervalsOfPreference.length; index++) {
         var prefTimeSlot = timeIntervalsOfPreference[index];
         if (timeSlot.startTime >= prefTimeSlot.startTime &&
             timeSlot.startTime < prefTimeSlot.endTime) {
-            return true;
+            if (prefTimeSlot.active) {
+                return true;
+            }
         }
 
     }
