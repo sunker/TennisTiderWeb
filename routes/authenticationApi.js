@@ -9,7 +9,9 @@ var express = require('express'),
 router.post('/', function (req, res) {
     User.getByEmail(req.body.email.toLowerCase().trim()).then((user) => {
         if (user && user.validatePassword(req.body.password)) {
-            var token = jwt.sign(user, 'tennistidersupersecrettoken', {
+            var token = jwt.sign({
+                email: user.email
+            }, 'tennistidersupersecrettoken', {
                 expiresIn: 6000 // 60 days
             });
 
@@ -50,7 +52,7 @@ router.post('/create', function (req, res) {
                     <p>Ditt användarnamn är <strong>${user.email}</strong></p>
                     <p>Mvh / Tennistider</p>`
         });
-        
+
         res.json({
             success: true,
             message: 'Registreringen lyckades!',

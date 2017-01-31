@@ -43,8 +43,7 @@ export class UserService {
         let currentUser = JSON.parse(localStorage.getItem('currentTennisTiderUser'));
         console.log(currentUser);
         if (currentUser && currentUser.token) {
-            // let headers = new Headers({ 'Authorization': currentUser.token, 'Content-Type': 'application/json' });
-            let headers = new Headers({ 'Authorization': '', 'Content-Type': 'application/json' });
+            let headers = new Headers({ 'Authorization': 'Bearer' + currentUser.token, 'Content-Type': 'application/json' });
             return new RequestOptions({ headers: headers });
         }
     }
