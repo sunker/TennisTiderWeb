@@ -25,18 +25,7 @@ export class SlotMonitorComponent {
                     this.router.navigateByUrl('/logga-in');
                 }
                 this.userObj = user;
-                this.clubs = user.slotPreference.map((x: any) => x.club).filter(x => x.id !== -1);;
+                this.clubs = user.slotPreference.map((x: any) => x.club).filter((x: any) => x.id !== -1);
             });
-    }
-
-    save() {
-        // this.userSlotPreference.saveClubTimeSlotSettings(this.currentUser.email, this.clubSlots)
-        //     .subscribe((data) => {
-        //         if (this.userObj.firstTimeUser) {
-        //             this.router.navigateByUrl('/valj-bastid');
-        //         } else {
-        //             this.router.navigateByUrl('/home');
-        //         }
-        //     });
     }
 }

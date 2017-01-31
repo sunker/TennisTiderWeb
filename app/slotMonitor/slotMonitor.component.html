@@ -10,20 +10,18 @@
 				<li *ngFor="let club of clubs; let i = index">
 					<div class="media">
 						<div class="media-left">
-							<a href="#">
-								<img class="media-object" src="img/{{club.image}}" alt="...">
-							</a>
+							<img class="media-object" src="img/{{club.image}}" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i" alt="...">
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">{{club.name}}</h4>
-							<p><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+							<h4 class="media-heading" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i">{{club.name}}</h4>
+							<p><span class="glyphicon glyphicon-map-marker" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i"></span>								Stockholm</p>
 						</div>
 						<div class="media-right">
 							<a class="club-time-selector-edit" data-toggle="collapse" data-parent="#accordion" href="#slot-target-{{i}}"><i class="fa fa-pencil-square-o link-edit" aria-hidden="true"></i></a>
 						</div>
 
 						<div id="slot-target-{{i}}" class="panel-collapse collapse">
-							<!--<time-selector [clubSlots]="clubSlot"></time-selector>-->
+							<date-and-time-selector></date-and-time-selector>
 						</div>
 
 					</div>

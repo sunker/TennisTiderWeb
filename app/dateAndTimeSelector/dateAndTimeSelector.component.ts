@@ -11,30 +11,24 @@ import { TimeSlotSelectorComponent } from '../timeSlotSelector/index';
     templateUrl: 'dateAndTimeSelector.component.html'
 })
 
-export class DateAndTimeSelectorComponent implements AfterViewInit {
-    @Input() clubSlots: any;
-    model: any = {};
-    currentUser: User;
-    loading = false;
+export class DateAndTimeSelectorComponent {
+    // @Input() clubSlots: any;
+    // model: any = {};
+    // currentUser: User;
+    // loading = false;
 
     constructor(
         private router: Router,
         private userSlotPreference: UserSlotPreference,
         private alertService: AlertService,
         private timePickerSettingsFactory: TimePickerSettingsFactory) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentTennisTiderUser'));
+        // this.currentUser = JSON.parse(localStorage.getItem('currentTennisTiderUser'));
     }
 
     ngOnChanges(changes: any): void {
         var settingsChange = changes.clubSlots.currentValue;
         if (settingsChange) {
         }
-    }
-
-    @ViewChildren(TimeSlotSelectorComponent) child: QueryList<TimeSlotSelectorComponent>;
-
-    ngAfterViewInit() {
-        this.child.forEach(child => child.refresh());
     }
 
     // save() {

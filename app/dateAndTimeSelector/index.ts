@@ -1,1 +1,1 @@
-﻿export * from './timeSelector.component';
+﻿export * from './dateAndTimeSelector.component';

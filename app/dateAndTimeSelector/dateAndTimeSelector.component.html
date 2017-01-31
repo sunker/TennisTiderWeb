@@ -1,4 +1,9 @@
-﻿<time-slot-selector [timePickerSettings]="(clubSlots)?.morningSettings"></time-slot-selector>
-<time-slot-selector [timePickerSettings]="(clubSlots)?.lunchSettings"></time-slot-selector>
-<time-slot-selector [timePickerSettings]="(clubSlots)?.eveningSettings"></time-slot-selector>
-<time-slot-selector [timePickerSettings]="(clubSlots)?.weekendSettings"></time-slot-selector>
+﻿<label for="date">Date Input:</label>
+<input type="date" name="date" id="date" value=""  />
+
+<script>
+  //reset type=date inputs to text
+  $( document ).bind( "mobileinit", function(){
+    $.mobile.page.prototype.options.degradeInputs.date = true;
+  });	
+</script>	
