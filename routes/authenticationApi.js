@@ -8,26 +8,30 @@ var express = require('express'),
 //58418062fb498203ece4e656"
 router.post('/', function (req, res) {
     User.getByEmail(req.body.email.toLowerCase().trim()).then((user) => {
-        if (user && user.validatePassword(req.body.password)) {
-            var token = jwt.sign({
-                email: user.email
-            }, 'tennistidersupersecrettoken', {
-                expiresIn: 6000 // 60 days
-            });
+        if (user) {
+            user.validatePassword(req.body.password).then((valid) => {
+                if (valid) {
+                    var token = jwt.sign({
+                        email: user.email
+                    }, 'tennistidersupersecrettoken', {
+                        expiresIn: 6000 // 60 days
+                    });
 
-            res.json({
-                'success': true,
-                'message': 'Authentication succeeded',
-                'email': user.email,
-                'firstTimeUser': user.firstTimeUser,
-                'slotPreference': user.slotPreference,
-                'token': token
+                    res.json({
+                        'success': true,
+                        'message': 'Authentication succeeded',
+                        'email': user.email,
+                        'firstTimeUser': user.firstTimeUser,
+                        'slotPreference': user.slotPreference,
+                        'token': token
+                    });
+                } else {
+                    res.writeHead(500, 'Felaktigt lösenord', {
+                        'content-type': 'text/plain'
+                    });
+                    res.end();
+                }
             });
-        } else {
-            res.writeHead(500, 'Felaktigt lösenord', {
-                'content-type': 'text/plain'
-            });
-            res.end();
         }
     }, (rejected) => {
         res.writeHead(500, 'Inloggningen misslyckades', {

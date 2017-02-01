@@ -51,33 +51,38 @@ userSchema.pre('save', function (next) {
         });
     }
 
-    next();
+    //next();
 
     // only hash the password if it has been modified (or is new)
-    // if (!user.isModified('password')) return next();
+    if (!user.isModified('password')) return next();
 
-    // // generate a salt
-    // bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
-    //     if (err) return next(err);
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
+        if (err) return next(err);
 
-    //     // hash the password along with our new salt
-    //     bcrypt.hash(user.password, salt, null, function (err, hash, progress, cb) {
-    //         if (err) return next(err);
+        // hash the password along with our new salt
+        bcrypt.hash(user.password, salt, null, function (err, hash, progress, cb) {
+            if (err) return next(err);
 
-    //         // override the cleartext password with the hashed one
-    //         user.password = hash;
-    //         next();
-    //     });
-    // });
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
 });
 
 userSchema.methods = {
     validatePassword: function (password) {
-        if (this.password === password) {
-            return true;
-        } else {
-            return false;
-        }
+        return new Promise((resolve) => {
+            var self = this;
+            bcrypt.compare(password, this.password, function (err, res) {
+                if (!res) { //legacy...
+                    resolve(self.password === password);
+                } else {
+                    resolve(res);
+                }
+            });
+        });
     },
     isDayInPreferenceRange: (date) => {
         return this.jsDaysOfPreference.indexOf(date) !== -1;
