@@ -1,5 +1,5 @@
 var dev = process.env.NODE_ENV === 'debug';
 module.exports = Object.freeze({
-    minDelay: dev ? 1000 : 20,
-    maxDelay: dev ? 2000 : 100,
+    minDelay: dev ? 500 : 6000,
+    maxDelay: dev ? 1500 : 25000,
 });

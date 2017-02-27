@@ -37,7 +37,7 @@
                 "name": "Padelverket",
                 "image": "padelverket.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=121&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
-                "daysAhead": 3
+                "daysAhead": 7
             },
             {
                 "id": 5,
@@ -49,7 +49,7 @@
             },
             {
                 "id": 6,
-                "include": true,
+                "include": false,
                 "name": "Haga Tennis",
                 "image": "hagatennis.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=110&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -61,7 +61,7 @@
                 "name": "Frescati",
                 "image": "frescati.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=44&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
-                "daysAhead": 3
+                "daysAhead": 10
             },
             {
                 "id": 8,
@@ -69,7 +69,7 @@
                 "name": "PDL Center",
                 "image": "pdlcenter.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=81&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
-                "daysAhead": 3
+                "daysAhead": 7
             },
             {
                 "id": 9,
@@ -89,7 +89,7 @@
             },
             {
                 "id": 11,
-                "include": true,
+                "include": false,
                 "name": "Skogås Racketcenter",
                 "image": "skogas.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=99&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -97,7 +97,7 @@
             },
             {
                 "id": 12,
-                "include": true,
+                "include": false,
                 "name": "Sollentuna Rackethall",
                 "image": "sollentunarackethall.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=15&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -105,7 +105,7 @@
             },
             {
                 "id": 13,
-                "include": true,
+                "include": false,
                 "name": "Sollentuna TK - Edsbergshallen",
                 "image": "sollentunatk.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=24&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -113,7 +113,7 @@
             },
             {
                 "id": 14,
-                "include": true,
+                "include": false,
                 "name": "Haninge TK",
                 "image": "haningetk.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=61&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -121,7 +121,7 @@
             },
             {
                 "id": 16,
-                "include": true,
+                "include": false,
                 "name": "Stora Wäsby TK",
                 "image": "storawasby.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=132&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -137,7 +137,7 @@
             },
             {
                 "id": 18,
-                "include": true,
+                "include": false,
                 "name": "Vallentuna TK",
                 "image": "valletunatk.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=63&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -145,7 +145,7 @@
             },
             {
                 "id": 19,
-                "include": true,
+                "include": false,
                 "name": "Bålsta TK",
                 "image": "balstatk.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=28&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -153,7 +153,7 @@
             },
             {
                 "id": 23,
-                "include": true,
+                "include": false,
                 "name": "Edsvikens TK",
                 "image": "edsviken.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=34&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -185,7 +185,7 @@
             },
             {
                 "id": 27,
-                "include": true,
+                "include": false,
                 "name": "Tumba TK",
                 "image": "tumba-tennis.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=96&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -208,7 +208,7 @@
             "domain": "http://v6716-profitwebsite.pastelldata.com",
             "daysAhead": 6,
             "id": 20,
-            "include": true,
+            "include": false,
             "tableContainerSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_bookableTimesTable",
             "tennisButtonSelectorId": "ContentPlaceHolder1_TreatmentBookWUC1_ctl07",
             "bookableClass": "ResBookSchemaTableBookButton",
@@ -228,7 +228,7 @@
             "startPage": "http://www.mycourt.se/your_clubs.php",
             "daysAhead": 6,
             "id": 21,
-            "include": true,
+            "include": false,
             "email": "tennistider@gmail.com",
             "password": "hejsan10",
             "loginClasSelector": "button small-button signin-button",
