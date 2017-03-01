@@ -33,7 +33,7 @@
             },
             {
                 "id": 4,
-                "include": true,
+                "include": false,
                 "name": "Padelverket",
                 "image": "padelverket.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=121&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -65,7 +65,7 @@
             },
             {
                 "id": 8,
-                "include": true,
+                "include": false,
                 "name": "PDL Center",
                 "image": "pdlcenter.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=81&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -73,7 +73,7 @@
             },
             {
                 "id": 9,
-                "include": true,
+                "include": false,
                 "name": "Älta TK",
                 "image": "alta.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=106&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -81,7 +81,7 @@
             },
             {
                 "id": 10,
-                "include": true,
+                "include": false,
                 "name": "Ekerö Padel",
                 "image": "ekeropadel.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=95&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
@@ -193,7 +193,7 @@
             },
             {
                 "id": 28,
-                "include": true,
+                "include": false,
                 "name": "Junibacken Tennis",
                 "image": "junibacken.jpg",
                 "url": "https://www.matchi.se/book/schedule?facilityId=119&date=[year]-[month]-[day]&sport=1&indoor=true&wl=",
