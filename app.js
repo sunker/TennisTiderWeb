@@ -48,8 +48,11 @@ app.use('/api/authenticate', authenticationApi);
 app.use('/api/user', userApi);
 
 //DB connect
+// var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+//                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };  
 // mongoose.connect('mongodb://127.0.0.1/tennistider', (err) => {
-mongoose.connect('mongodb://heroku_6pl9bfpx:9j9uur4mvva12agvm337k8lrgs@ds131139.mlab.com:31139/heroku_6pl9bfpx', (err) => {
+mongoose.connect('mongodb://heroku_6pl9bfpx:9j9uur4mvva12agvm337k8lrgs@ds131139.mlab.com:31139/heroku_6pl9bfpx', { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } }, (err) => {
     if (err) console.log(err);
     else console.log('Connected to database');
 });
