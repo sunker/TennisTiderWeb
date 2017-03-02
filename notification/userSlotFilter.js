@@ -17,27 +17,39 @@ userSlotFilter.filterSlots = (user, slots) => {
 };
 
 userSlotFilter.isPrimeTime = (slot) => {
-    if (slot.timeSlot.startTime > 17) return true;
-    if (slot.isOnWeekend && slot.timeSlot.startTime > 8) return true;
-    if (slot.daysFromToday() < 7) return true;
-    if (slot.isLunchtimeSlot && slot.clubId === 0 && slot.daysFromToday() < 5)
+    try {
 
+        if (slot.timeSlot.startTime > 17) return true;
+        if (slot.isOnWeekend && slot.timeSlot.startTime > 8) return true;
+        if (slot.daysFromToday() < 7) return true;
+        if (slot.isLunchtimeSlot && slot.clubId === 0 && slot.daysFromToday() < 5)
+
+            return false;
+    } catch (error) {
+        console.log(error);
         return false;
+    }
 };
 
 var isTimeInPreferenceRange = (timeIntervalsOfPreference, timeSlot) => {
-    for (var index = 0; index < timeIntervalsOfPreference.length; index++) {
-        var prefTimeSlot = timeIntervalsOfPreference[index];
-        if (timeSlot.startTime >= prefTimeSlot.startTime &&
-            timeSlot.startTime < prefTimeSlot.endTime) {
-            if (prefTimeSlot.active) {
-                return true;
+    try {
+        for (var index = 0; index < timeIntervalsOfPreference.length; index++) {
+            var prefTimeSlot = timeIntervalsOfPreference[index];
+            if (timeSlot.startTime >= prefTimeSlot.startTime &&
+                timeSlot.startTime < prefTimeSlot.endTime) {
+                if (prefTimeSlot.active) {
+                    return true;
+                }
             }
+
         }
 
-    }
+        return false;
 
-    return false;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
 };
 
 module.exports = userSlotFilter;
