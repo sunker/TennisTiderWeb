@@ -1,5 +1,16 @@
 ﻿<div class="component-page">
 	<h2 class="text-center">Vilka klubbar är intressanta för dig?</h2>
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="true">{{selectedLocation}}
+    <span class="caret"></span>
+  </button>
+		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			<li><a (click)="setLocation('Stockholm')" href="javascript:void(0)">Stockholm</a></li>
+			<li><a (click)="setLocation('Göteborg')" href="javascript:void(0)">Göteborg</a></li>
+		</ul>
+	</div>
+	<br>
 	<form (ngSubmit)="f.form.valid && saveClubs()" #f="ngForm" novalidate>
 		<ul class="club-selector">
 			<li *ngFor="let club of clubs">
@@ -9,7 +20,7 @@
 					</div>
 					<div class="media-body">
 						<h4 class="media-heading">{{club.name}}</h4>
-						<p><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+						<p><span class="glyphicon glyphicon-map-marker"></span> {{club.location}}</p>
 					</div>
 					<div class="media-right">
 						<label class="btn">

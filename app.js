@@ -86,8 +86,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-var scraper = require('./scraping/scraper.js');
-scraper.getInstance().init();
+// var scraper = require('./scraping/scraper.js');
+// scraper.getInstance().init();
 require('./notification/userNotificationService');
 
 

@@ -9,7 +9,8 @@ clubService.getAllClubs = () => {
             'id': club.id,
             'name': club.name,
             'image': club.image,
-            'url': club.url
+            'url': club.url,
+            'location': club.location
         });
     });
 
@@ -18,7 +19,8 @@ clubService.getAllClubs = () => {
             'id': club.id,
             'name': club.name,
             'image': club.image,
-            'url': club.bookingUrl
+            'url': club.bookingUrl,
+            'location': club.location
         });
     });
 
@@ -27,7 +29,8 @@ clubService.getAllClubs = () => {
         'id': hellas.id,
         'name': hellas.name,
         'image': hellas.image,
-        'url': hellas.url
+        'url': hellas.url,
+        'location': hellas.location
     });
 
     let enskede = config.endpoints.enskede;
@@ -35,7 +38,8 @@ clubService.getAllClubs = () => {
         'id': enskede.id,
         'name': enskede.name,
         'image': enskede.image,
-        'url': enskede.bookingUrl
+        'url': enskede.bookingUrl,
+        'location': enskede.location
     });
 
     return result;

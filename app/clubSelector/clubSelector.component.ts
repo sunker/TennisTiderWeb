@@ -12,7 +12,9 @@ import { ClubService, UserSlotPreference } from '../_services/index';
 export class ClubSelectorComponent implements OnInit {
     currentUser: User;
     clubs: Club[] = [];
+    allClubs: Club[] = [];
     loading = false;
+    selectedLocation = 'Stockholm';
 
     constructor(
         private clubService: ClubService,
@@ -23,6 +25,11 @@ export class ClubSelectorComponent implements OnInit {
 
     ngOnInit() {
         this.loadAllClubs();
+    }
+
+    setLocation(location: string) {
+        this.selectedLocation = location;
+        this.clubs = this.allClubs.filter(x=>x.location === location)
     }
 
     saveClubs() {
@@ -49,8 +56,8 @@ export class ClubSelectorComponent implements OnInit {
             if (club.success === false) {
                 this.router.navigateByUrl('/logga-in');
             }
-
-            this.clubs = club;
+            this.allClubs = club;
+            this.clubs = this.allClubs.filter(x=>x.location === 'Stockholm')
         });
     }
 }

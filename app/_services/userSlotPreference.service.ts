@@ -34,7 +34,7 @@ export class UserSlotPreference {
             let lunchSetting = this.timePickerSettingsFactory.createLunchTimePicker(target.club.id, this.getSlotGroup(target, 2, 11, 15));
             let eveningSetting = this.timePickerSettingsFactory.createEveningTimePicker(target.club.id, this.getSlotGroup(target, 2, 15, 21));
             let weekendSetting = this.timePickerSettingsFactory.createWeekendTimePicker(target.club.id, this.getSlotGroup(target, 0, 6, 23));
-            const clubSlots = new ClubSlots(new Club(target.club.id, target.club.name, target.club.image, target.club.activeForUser), morningSetting, lunchSetting, eveningSetting, weekendSetting);
+            const clubSlots = new ClubSlots(new Club(target.club.id, target.club.name, target.club.image, target.club.activeForUser, target.club.location), morningSetting, lunchSetting, eveningSetting, weekendSetting);
             result.push(clubSlots);
         });
         return result;

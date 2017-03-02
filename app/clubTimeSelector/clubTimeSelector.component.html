@@ -14,7 +14,7 @@
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading" data-toggle="collapse" [attr.data-target]="'#slot-target-' + i">{{clubSlot.club.name}}</h4>
-							<p data-toggle="collapse" [attr.data-target]="'#slot-target-' + i"><span class="glyphicon glyphicon-map-marker"></span> Stockholm</p>
+							<p data-toggle="collapse" [attr.data-target]="'#slot-target-' + i"><span class="glyphicon glyphicon-map-marker"></span> {{clubSlot.club.location}}</p>
 						</div>
 						<div class="media-right">
 							<a class="club-time-selector-edit" data-toggle="collapse" data-parent="#accordion" href="#slot-target-{{i}}"><i class="fa fa-pencil-square-o link-edit" aria-hidden="true"></i></a>
