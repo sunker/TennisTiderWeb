@@ -8,6 +8,7 @@ var express = require('express'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
+    rp = require('request-promise'),
     filter = require('../notification/userSlotFilter');
     // noCacheHeader = require('../middleware/noCacheHeader');
 
@@ -20,14 +21,16 @@ router.get('/list', function (req, res) {
     });
 });
 
-router.get('/getByEmail/:email', function (req, res) {
+router.get('/getByEmail/:email', async function (req, res) {
     console.log('getByEmail' + req.params.email);
     var userObj = {};
+    const clubs = await rp({ uri: `https://tennistider-api.herokuapp.com/api/club/list`, json: true })
     User.getByEmail(req.params.email).then((user) => {
         try {
             userObj = user.toObject();
             userObj.slotPreference.forEach((slotPref) => {
-                const club = clubService.getAllClubs().find(x => x.id === slotPref.clubId);
+                
+                const club = clubs.find(x => x.id === slotPref.clubId);//clubService.getAllClubs().find(x => x.id === slotPref.clubId);
 
                 slotPref.clubName = club ? club.name : '';
                 slotPref.club = club ? club : {

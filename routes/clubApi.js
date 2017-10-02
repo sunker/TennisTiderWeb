@@ -1,6 +1,5 @@
 var express = require('express'),
   router = express.Router(),
-  clubService = require('../services/clubService'),
   mongoose = require('mongoose'),
   jwtAuthentication = require('../middleware/jwtAuthentication'),
   rp = require('request-promise'),
