@@ -8,7 +8,7 @@
     "tsc:w": "tsc -w",
     "prod": "NODE_ENV=production ./bin/www",
     "heroku-postbuild": "node bin/bundler.js --prod",
-    "build:prod": "npm run tsc && node bin/bundler.js --prod",
+    "build:prod": "npm run tsc --ignore-error && node bin/bundler.js --prod",
     "postinstall": "npm run build:prod"
   },
   "repository": {
@@ -47,9 +47,9 @@
     "reflect-metadata": "^0.1.8",
     "request": "^2.79.0",
     "request-promise": "^4.2.2",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "^5.4.3",
     "systemjs-builder": "^0.15.17",
-    "typescript": "^2.0.3",
+    "typescript": "^2.5.3",
     "underscore": "^1.8.3",
     "yargs": "^4.7.1",
     "zone.js": "^0.6.25"
