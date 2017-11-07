@@ -1,14 +1,14 @@
+require('./models/User')
+require('./models/SlotsCache')
+require('./models/SlotModel')
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const mongoose = require('mongoose'),
-    a = require('./models/User'),
-    b = require('./models/SlotsCache'); 
-
-var users = require('./routes/users');
+const mongoose = require('mongoose');
+const users = require('./routes/users');
 const userApi = require('./routes/userApi');
 const clubApi = require('./routes/clubApi');
 const slotApi = require('./routes/slotApi');
@@ -23,10 +23,10 @@ const options = {
 
 // if (app.get('env') !== 'production') {
 
-  options.index = "index.dev.html";
+options.index = "index.dev.html";
 
-  // expose node_modules to client app
-  app.use(express.static(__dirname + "/node_modules"));
+// expose node_modules to client app
+app.use(express.static(__dirname + "/node_modules"));
 // }
 
 
@@ -51,14 +51,16 @@ app.use('/api/user', userApi);
 // var options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
 //                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };  
 // mongoose.connect('mongodb://127.0.0.1/tennistider', (err) => {
-mongoose.connect('mongodb://heroku_6pl9bfpx:9j9uur4mvva12agvm337k8lrgs@ds131139.mlab.com:31139/heroku_6pl9bfpx', { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
-                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } }, (err) => {
-    if (err) console.log(err);
-    else console.log('Connected to database');
+mongoose.connect('mongodb://heroku_6pl9bfpx:9j9uur4mvva12agvm337k8lrgs@ds131139.mlab.com:31139/heroku_6pl9bfpx', {
+  server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+  replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }
+}, (err) => {
+  if (err) console.log(err);
+  else console.log('Connected to database');
 });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -69,7 +71,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
 
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.json({
       message: err.message,
@@ -80,7 +82,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.json({
     message: err.message,

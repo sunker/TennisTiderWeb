@@ -8,6 +8,7 @@ var express = require('express'),
     User = mongoose.model('user'),
     notificationService = require('../notification/userNotificationService'),
     SlotsCache = mongoose.model('SlotsCache'),
+    Slot = mongoose.model('slot'),
     rp = require('request-promise'),
     filter = require('../notification/userSlotFilter');
     // noCacheHeader = require('../middleware/noCacheHeader');
@@ -46,7 +47,7 @@ router.get('/getByEmail/:email', async function (req, res) {
 });
 
 router.post('/sendMailList', function (req, res) {
-    const slotPromise = SlotsCache.getCurrent();
+    const slotPromise = Slot.getAll();
     const userPromise = User.getByEmail(req.body.email);
 
     Promise.all([userPromise, slotPromise]).then(values => {
