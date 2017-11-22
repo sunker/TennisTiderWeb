@@ -25,7 +25,8 @@ router.get('/list', function (req, res) {
 router.get('/getByEmail/:email', async function (req, res) {
     console.log('getByEmail' + req.params.email);
     var userObj = {};
-    const clubs = await rp({ uri: `https://tennistider-api.herokuapp.com/api/club/list`, json: true })
+    // const clubs = await rp({ uri: `https://tennistider-api.herokuapp.com/api/club/list`, json: true })
+    const clubs = clubService.getAllClubs2()
     User.getByEmail(req.params.email).then((user) => {
         try {
             userObj = user.toObject();
